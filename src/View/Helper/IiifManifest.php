@@ -747,6 +747,7 @@ class IiifManifest extends AbstractHelper
         $canvas['@id'] = $canvasUrl;
         $canvas['@type'] = 'sc:Canvas';
         $canvas['label'] = $titleFile ?: '[' . $index .']';
+        $canvas['label'] = "".$index;
 
         // Thumbnail of the current file.
         $canvas['thumbnail'] = $this->_iiifThumbnail($media);
