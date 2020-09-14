@@ -325,6 +325,13 @@ class IiifManifest extends AbstractHelper
                         $render['label'] = $translate('Download as PDF');
                         $render = (object) $render;
                         $rendering[] = $render;
+
+                        //if table of contents => add structure
+                        $toc = $media->value('dcterms:tableOfContents',  ['all' => true]) ?: [];
+                        if ( $toc ) {
+                            $manifest['structures'] = json_decode($toc[0]);
+                        }
+
                         break;
 
                     case 'text/xml':
